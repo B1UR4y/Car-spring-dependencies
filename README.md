@@ -12,7 +12,6 @@
 
 - JDK 17+ (проект собран и проверен на JDK 23)
 - Apache Maven 3.9+
-- Интернет для первой сборки - Maven должен скачать зависимости Spring
 
 Ссылка на релизы Apache Maven: https://maven.apache.org/download.cgi  
 Ссылка на релизы JDK: https://www.oracle.com/java/technologies/downloads/
