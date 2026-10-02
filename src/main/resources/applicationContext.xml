@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        Загружает внешний файл свойств
+    -->
+    <context:property-placeholder location="classpath:car.properties"/>
+
+    <!--
+        Бин бензинового двигателя.
+        Внедрение простых значений через конструктор:
+        - fuelType = "АИ-95"
+        - power = 150
+    -->
+    <bean id="petrolEngine" class="com.example.car.PetrolEngine">
+        <constructor-arg value="АИ-95"/>
+        <constructor-arg value="150"/>
+    </bean>
+
+    <!--
+        Бин электрического двигателя.
+        Внедрение простых значений через конструктор:
+        - batteryCapacity = 123.0
+        - power = 600
+    -->
+    <bean id="electricEngine" class="com.example.car.ElectricEngine">
+        <constructor-arg value="123.0"/>
+        <constructor-arg value="600"/>
+    </bean>
+
+    <!--
+        Бин автомобиля с бензиновым двигателем.
+        Внедрение зависимости по ссылке через конструктор (ref="petrolEngine").
+        Внедрение простого значения через конструктор (model = "Toyota Camry").
+        Внедрение простого значения из внешнего файла через setter (maxSpeed).
+    -->
+    <bean id="petrolCar" class="com.example.car.Car">
+        <constructor-arg ref="petrolEngine"/>
+        <constructor-arg value="Toyota Camry"/>
+        <property name="maxSpeed" value="${car.maxSpeed}"/>
+    </bean>
+
+    <!--
+        Бин автомобиля с электрическим двигателем.
+        Внедрение зависимости по ссылке через конструктор (ref="electricEngine").
+        Внедрение простого значения через конструктор (model = "Tesla Cybertruck").
+        Внедрение простого значения из внешнего файла через setter (maxSpeed).
+    -->
+    <bean id="electricCar" class="com.example.car.Car">
+        <constructor-arg ref="electricEngine"/>
+        <constructor-arg value="Tesla Cybertruck"/>
+        <property name="maxSpeed" value="${car.maxSpeed}"/>
+    </bean>
+
+</beans>
