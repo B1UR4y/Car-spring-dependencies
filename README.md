@@ -1,4 +1,4 @@
-# Автомобиль и двигатели (Spring DI, XML-конфигурация)
+# Автомобиль и двигатели
 
 Консольное Java-приложение с иерархией `Engine -> PetrolEngine, ElectricEngine`
 и зависимым классом `Car`. Демонстрирует механизм внедрения зависимостей
@@ -30,11 +30,11 @@ mvn clean package
 ### Windows
 
 ```cmd
-java -jar target\CIS2-1.0-SNAPSHOT.jar
+java -jar target\Car-spring-dependencies-1.0-SNAPSHOT.jar
 ```
 
 ### Linux / macOS
 
 ```bash
-java -jar target/CIS2-1.0-SNAPSHOT.jar
+java -jar target/Car-spring-dependencies-1.0-SNAPSHOT.jar
 ```
